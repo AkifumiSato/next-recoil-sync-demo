@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import styles from './Counter.module.css'
+import { useRecoilState } from 'recoil'
+import { countState } from './recoil'
 
 export const Counter = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useRecoilState(countState)
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>count: {count}</div>
       <button onClick={() => setCount((prev) => prev + 1)}>increment</button>
     </div>
