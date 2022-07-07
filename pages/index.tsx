@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { Counter } from '../src/components/Counter/counter'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Top page
         </h1>
+        <Counter />
         <ul>
           <li>
             <Link href='/articles/1'>

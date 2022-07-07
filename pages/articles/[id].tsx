@@ -1,6 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { Counter } from '../../src/components/Counter/counter'
 import styles from '../../styles/Home.module.css'
 
 type Props = {
@@ -18,6 +19,7 @@ const Home: NextPage<Props> = ({ id }) => {
         <h1 className={styles.title}>
           Article {id}
         </h1>
+        <Counter />
         <ul>
           <li>
             <Link href='/articles/1'>
