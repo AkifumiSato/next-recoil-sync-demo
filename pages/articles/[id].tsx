@@ -1,5 +1,6 @@
-import type {GetServerSideProps, NextPage} from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 
 type Props = {
@@ -17,6 +18,23 @@ const Home: NextPage<Props> = ({ id }) => {
         <h1 className={styles.title}>
           Article {id}
         </h1>
+        <ul>
+          <li>
+            <Link href='/articles/1'>
+              <a>article 1</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='/articles/2'>
+              <a>article 2</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='/articles/3'>
+              <a>article 3</a>
+            </Link>
+          </li>
+        </ul>
       </main>
     </div>
   )
@@ -28,6 +46,6 @@ export const getServerSideProps: GetServerSideProps<Props, { id: string }> = ({ 
   return {
     props: {
       id,
-    }
+    },
   }
 }
