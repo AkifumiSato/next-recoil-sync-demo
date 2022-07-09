@@ -1,18 +1,19 @@
 import '../styles/globals.css'
-import { RecoilRoot } from 'recoil'
-import { RecoilURLSyncJSONNext } from 'recoil-sync-next'
-
 import type { AppProps } from 'next/app'
+import { RecoilRoot } from 'recoil'
+import { RecoilHistorySyncJSONNext, RecoilURLSyncJSONNext } from 'recoil-sync-next'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
-      <RecoilURLSyncJSONNext
-        storeKey='url-json-store'
-        location={{ part: 'queryParams' }}
-      >
-        <Component {...pageProps} />
-      </RecoilURLSyncJSONNext>
+      <RecoilHistorySyncJSONNext>
+        <RecoilURLSyncJSONNext
+          storeKey='url-json-store'
+          location={{ part: 'queryParams' }}
+        >
+          <Component {...pageProps} />
+        </RecoilURLSyncJSONNext>
+      </RecoilHistorySyncJSONNext>
     </RecoilRoot>
   )
 }
