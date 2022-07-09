@@ -5,6 +5,6 @@ import { atomFamilyWithInitialValue } from 'recoil-sync-next'
 export const counter = atomFamilyWithInitialValue<number>({
   key: 'counterState',
   effects: [
-    syncEffect({ refine: number() }),
+    syncEffect({ storeKey: 'url-json-store', refine: number() }),
   ],
 })
