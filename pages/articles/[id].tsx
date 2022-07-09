@@ -44,10 +44,12 @@ const Home: NextPage<Props> = ({ id }) => {
 
 export default Home
 
-export const getServerSideProps: GetServerSideProps<Props, { id: string }> = ({ params: { id } }) => {
+export const getServerSideProps: GetServerSideProps<Props, { id: string }> = async ({ params }) => {
+  if (params?.id === undefined) throw new Error('`params.id` is undefined.')
+
   return {
     props: {
-      id,
+      id: params?.id,
     },
   }
 }
